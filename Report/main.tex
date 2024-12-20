@@ -1,0 +1,176 @@
+\documentclass{report}
+\usepackage{fontspec}
+\usepackage{fancyhdr}
+\usepackage{graphicx} % Required for inserting images\
+\usepackage[utf8]{inputenc}
+\usepackage{lscape}
+\usepackage[margin=3cm]{geometry}
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{comment}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{longtable}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Adjust to your version if necessary
+\usepackage{titlesec}
+\usepackage{makecell}
+\usepackage{tabularx}
+
+
+
+% for fonts ---------------------------------------------
+\setmainfont{Times New Roman}
+\setmonofont{JetBrainsMono}[
+  Extension=.ttf,
+  UprightFont=*-Regular,
+  ItalicFont=*-Italic,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldItalic,
+]
+
+%for code styling ---------------------------------------
+\definecolor{mBlue}{rgb}{0,0.4,0.7}
+\definecolor{mGray}{rgb}{0.5,0.5,0.5}
+\definecolor{mPurple}{rgb}{0.58,0,0.82}
+% \definecolor{backgroundColour}{HTML}{e6f0ee}
+\definecolor{backgroundColour}{HTML}{ffffff}
+\definecolor{mAdib}{rgb}{0,0.8,0}
+\DeclareCaptionType{code}[Code Snippet][List of Code Listings]
+
+\lstdefinestyle{code}{
+    backgroundcolor=\color{backgroundColour},   
+    commentstyle=\color{mGray},
+    keywordstyle=\color{mBlue}\bfseries,
+    numberstyle=\color{mGray},
+    stringstyle=\color{mPurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,
+    keepspaces=true,                                            
+    morekeywords={Input, Output,},
+    showspaces=false,                
+    showstringspaces=false,
+    xleftmargin=5pt,
+    numbers=left,
+    numbersep=12pt,
+    showtabs=false,                  
+    tabsize=4,
+    % frame=single,
+    language=c
+}
+
+%Fancy page ---------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+
+% Variables
+\newcommand{\mainTopic}{\huge{Experiment Report}}
+\newcommand{\mainTopicSmall}{\large Experiment Report}
+\newcommand{\coursename}{\Large Machine Learning}
+\newcommand{\coursenameSmall}{\large Machine Learning}
+\newcommand{\coursecode}{\Large CSE 4500}
+\newcommand{\reporttype}{\Large{Comparative Study on Performance of Pretrained ImageNET Models for Character Level Static Hand Gesture Recognition}}
+
+%Fixed Value Variables ----------------------------------------
+\newcommand{\Name}{\huge{Team Asterisk}}
+\newcommand{\studentID}{210042106}
+\newcommand{\bscProgram}{BSc in Software Engineering}
+\newcommand{\dept}{Department of Computer Science and Engineering}
+\newcommand{\university}{\textsc{\Huge{Islamic University of Technology}}}
+\newcommand{\univAddress}{Board Bazar, Gazipur, Dhaka, 1704, Bangladesh}
+
+
+
+% Header and Footer --------------------------------------------
+\fancyhead[L]{\mainTopicSmall}
+\fancyhead[R]{\coursenameSmall}
+\fancyfoot[L]{\large Adib Sakhawat (210042106) , BSc in SWE, Dept of CSE, IUT}
+% \fancyfoot[L]{\large Adib Sakhawat (106), Khalid Hasan (102), Ekramul Alam(164)}
+\fancyfoot[R]{\large \thepage}
+
+% Header and Footer lines --------------------------------------
+\renewcommand{\headrulewidth}{0.4pt} 
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Hyperlinks
+\hypersetup{
+    colorlinks=false,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+% Title Page
+\title{
+	\begin{figure}[!htb]
+		\includegraphics[scale=0.2]{rsx/iut_logo.png}
+		\centering
+	\end{figure}
+
+        \Large{\textbf{\university}}\\	
+	\large{\textbf{\univAddress}}\\	
+	\vspace{1.1in}
+        \Large{\textbf{\huge{\mainTopic}}}\\
+	\line(1,0){450}\\
+	\vspace{0.15in}
+	\Large{\textbf{\huge{\reporttype}}}\\
+        \vspace{.5in}
+	\LARGE{\textbf{\coursecode \ - \coursename}}\\
+        \vspace{.2in}
+}
+
+\author{
+        \Large{\textbf{\Name}}\\\\
+        \vspace{0.1in}
+        % \Large{\textbf{ID : \studentID}}\\\\
+        % \Large{\textbf{\studentID}}\\\\
+        \Large{\textbf{\bscProgram}}\\\\
+        \Large{\textbf{\dept}}
+        % \vspace{.2in}
+}
+
+% % Redefine \chapter to use "Problem" instead of "Chapter"
+% \titleformat{\chapter}[block]
+%   {\normalfont\Huge\bfseries}{Problem \thechapter}{1em}{}
+
+\begin{document}
+\maketitle
+\large
+
+
+\begin{abstract}
+This report shows a comparative analysis of several pre-trained models, fine-tuned on the Sign Language Gesture Images Dataset. The objective of this study is to evaluate the performance of popular pre-trained models, including ResNet, VGG16, and InceptionV3, in a sign language gesture recognition task. By leveraging the power of ImageNet-trained weights, we fine-tune these models to classify sign-language gestures, a critical application for enhancing communication accessibility. Performance is measured using metrics such as accuracy, precision, recall and the F1 score, and further analyzed using visualizations such as t-SNE, confusion matrices, Grad-CAM heatmaps and Lime visualizations to gain insight into the behavior of the model. The findings aim to contribute to the comparative analysis and model selection guide for specific types of Hand Gesture Recognition Problem.
+\end{abstract}
+
+
+\tableofcontents
+
+
+% Chapters
+
+\include{Chapters/Introduction}
+
+
+
+% Appendix
+% \include{Appendix/Appendix_acc}
+% \include{Appendix/Appendix_loss}
+% \include{Appendix/Appendix_Conf}
+% \include{Appendix/Appendix_tsne}
+\include{Appendix/Appendix_heatmap}
+\include{Appendix/Appendix_Lime}
+
+% Ref
+\bibliographystyle{plain}
+\bibliography{ref}
+
+\end{document}
+
+
