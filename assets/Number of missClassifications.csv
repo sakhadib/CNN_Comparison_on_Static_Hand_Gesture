@@ -1,0 +1,16 @@
+Model,Number of missclassified classes below 20 images,Number of missclassified classes 20 - 100 images,Number of missclassified classes more than 100 images
+EfficientNetV2L,70,6,1
+VGG16,20,3,0
+VGG19,14,1,0
+EFFICIENTNETB0,17,2,0
+MOBILENETV2,246,58,8
+DENSENET201,35,10,3
+MOBILENETV3LARGE,31,4,1
+ConvNeXtBase,12,0,0
+ConvNeXtXLarge,12,3,0
+EFFICIENTNETV2S,10,1,0
+DenseNet169,91,18,6
+DENSENET121,72,15,1
+RESNET101,24,6,3
+RESNET152,41,5,0
+RESNET50,23,5,1
